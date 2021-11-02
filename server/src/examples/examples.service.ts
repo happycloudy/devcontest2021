@@ -13,7 +13,7 @@ export class ExamplesService {
     }
 
     async create(createExampleDto: CreateExampleDto): Promise<Example> {
-        const createdTheme = await new this.exampleModel(createExampleDto)
-        return createdTheme.save()
+        const createdExample = await new this.exampleModel(createExampleDto)
+        return createdExample.save()
     }
 }

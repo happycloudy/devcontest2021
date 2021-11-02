@@ -4,20 +4,35 @@ export type UserDocument = User & Document
 
 @Schema()
 export class User {
-    @Prop()
+    @Prop({ required: true })
     name1: string
 
-    @Prop()
+    @Prop({ required: true })
     name2: string
 
-    @Prop()
+    @Prop({ required: true })
     name3: string
 
-    @Prop()
+    @Prop({ required: true })
     username: string
 
-    @Prop()
+    @Prop({ required: true })
     password: string
+
+    @Prop({
+        default: 0
+    })
+    fullProgress: number
+
+    @Prop({
+        default: []
+    })
+    progress: Progress[]
 }
 
 export const UserSchema = SchemaFactory.createForClass(User)
+
+class Progress {
+    name: string
+    progress: number
+}

@@ -13,7 +13,7 @@ export class DefinitionsService {
     }
 
     async create(createDefinitionDto: CreateDefinitionDto): Promise<Definition> {
-        const createdTheme = await new this.definitionModel(createDefinitionDto)
-        return createdTheme.save()
+        const createdDefinition = await new this.definitionModel(createDefinitionDto)
+        return createdDefinition.save()
     }
 }

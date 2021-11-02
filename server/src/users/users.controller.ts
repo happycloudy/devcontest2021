@@ -1,19 +1,33 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
 import {UsersService} from "./users.service";
 import {CreateUserDto} from "./dto/create-user.dto";
+import {UpdateProgressDto} from "./dto/update-progress.dto";
 
 @Controller('users')
 export class UsersController {
-    constructor(private userService: UsersService) {}
+    constructor(private userService: UsersService) {
+    }
 
     @Get()
-    getAllUsers(){
+    getAllUsers() {
         return this.userService.findAll()
     }
 
+    @Get(':id')
+    getOne(@Param('id') id: string) {
+        return this.userService.findOne(id)
+    }
+
     @Post()
-    async createUser(@Body() createUserDto: CreateUserDto): Promise<string>{
+    async createUser(@Body() createUserDto: CreateUserDto): Promise<string> {
         await this.userService.create(createUserDto)
         return `User ${createUserDto.username} was created`
+    }
+
+    @Put('updateProgress/:id/:name/:progress')
+    async updateProgress(@Param() updateProgressDto: UpdateProgressDto){
+        let user = await this.userService.updateProgress(updateProgressDto)
+        await this.userService.updateFullProgress(updateProgressDto)
+        return `Progress of user ${user} has been updated`
     }
 }

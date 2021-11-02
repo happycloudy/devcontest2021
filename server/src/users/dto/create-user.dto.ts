@@ -4,4 +4,11 @@ export class CreateUserDto {
     readonly name3: string
     readonly username: string
     readonly password: string
+    readonly fullProgress: number
+    readonly progress: Progress[]
+}
+
+class Progress {
+    readonly name : string
+    readonly progress: number
 }

@@ -2,6 +2,9 @@ import {Body, Controller, Get, Param, Patch, Post} from '@nestjs/common';
 import {UsersService} from "./users.service";
 import {CreateUserDto} from "./dto/create-user.dto";
 import {UpdateProgressDto} from "./dto/update-progress.dto";
+import {User} from "./user.schema";
+import {LikeFormulaDto} from "./dto/like-formula.dto";
+import {ApiBody} from "@nestjs/swagger";
 
 @Controller('users')
 export class UsersController {
@@ -19,15 +22,27 @@ export class UsersController {
     }
 
     @Post()
-    async createUser(@Body() createUserDto: CreateUserDto): Promise<string> {
-        await this.userService.create(createUserDto)
-        return `User ${createUserDto.username} was created`
+    @ApiBody({type: CreateUserDto})
+    async createUser(@Body() createUserDto: CreateUserDto): Promise<User> {
+        return await this.userService.create(createUserDto)
     }
 
     @Patch('updateProgress')
-    async updateProgress(@Body() updateProgressDto: UpdateProgressDto){
-        let user = await this.userService.updateProgress(updateProgressDto)
-        await this.userService.updateFullProgress(updateProgressDto)
-        return `Progress of user ${user} has been updated`
+    @ApiBody({type: UpdateProgressDto})
+    async updateProgress(@Body() updateProgressDto: UpdateProgressDto): Promise<number>{
+        await this.userService.updateProgress(updateProgressDto)
+        return await this.userService.updateFullProgress(updateProgressDto)
+    }
+
+    @Patch('likeFormula')
+    @ApiBody({type: LikeFormulaDto})
+    async addFormulaToLiked(@Body() likeFormulaDto: LikeFormulaDto): Promise<User | string>{
+        return this.userService.addFormulaToLiked(likeFormulaDto)
+    }
+
+    @Patch('unlikeFormula')
+    @ApiBody({type: LikeFormulaDto})
+    async removeFormulaFromLiked(@Body() likeFormulaDto: LikeFormulaDto): Promise<User | string>{
+        return this.userService.removeFormulaFromLiked(likeFormulaDto)
     }
 }

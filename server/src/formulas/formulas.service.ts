@@ -28,4 +28,8 @@ export class FormulasService {
             formula: updateFormulaDto.formula
         })
     }
+
+    async checkIsAvailable(id: string){
+        return this.formulaModel.exists({_id: id})
+    }
 }

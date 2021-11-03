@@ -1,4 +1,5 @@
 import {Prop, Schema, SchemaFactory} from "@nestjs/mongoose";
+import {Formula} from "../formulas/formula.schema";
 
 export type UserDocument = User & Document
 
@@ -28,6 +29,14 @@ export class User {
         default: []
     })
     progress: Progress[]
+
+    @Prop({
+        default: []
+    })
+    likedFormulasId: string[]
+
+    @Prop()
+    likedFormulas: Formula[]
 }
 
 export const UserSchema = SchemaFactory.createForClass(User)

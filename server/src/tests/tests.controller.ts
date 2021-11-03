@@ -3,6 +3,7 @@ import {CreateTestDto} from "./dto/create-test.dto";
 import {TestsService} from "./tests.service";
 import {Test} from "./tests.schema";
 import {UpdateTestDto} from "./dto/update-test.dto";
+import {ApiBody} from "@nestjs/swagger";
 
 @Controller('tests')
 export class TestsController {
@@ -20,12 +21,14 @@ export class TestsController {
     }
 
     @Post()
+    @ApiBody({type: CreateTestDto})
     async create(@Body() createTestDto: CreateTestDto): Promise<Test> {
         return await this.testService.create(createTestDto)
     }
 
 
     @Patch()
+    @ApiBody({type: UpdateTestDto})
     async update(@Body() updateTestDto: UpdateTestDto) {
         return await this.testService.updateOne(updateTestDto)
     }

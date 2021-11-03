@@ -75,4 +75,8 @@ export class ThemesService {
             testId: updateThemeDto.testsId
         })
     }
+
+    async count(): Promise<number>{
+        return this.themeModel.count()
+    }
 }

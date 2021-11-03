@@ -17,6 +17,7 @@ import {TestsModule} from "../tests/tests.module";
       FormulasModule,
       ExamplesModule,
       TestsModule
-  ]
+  ],
+    exports: [ThemesService]
 })
 export class ThemesModule {}

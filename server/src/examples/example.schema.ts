@@ -5,8 +5,10 @@ export type ExampleDocument = Example & Document
 
 @Schema()
 export class Example {
-    @Prop()
+    @Prop({required: true})
     name: string
+
+    @Prop({required: true})
     example: string
 }
 

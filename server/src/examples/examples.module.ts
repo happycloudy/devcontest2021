@@ -7,6 +7,7 @@ import {Example, ExampleSchema} from "./example.schema";
 @Module({
   controllers: [ExamplesController],
   providers: [ExamplesService],
-  imports: [MongooseModule.forFeature([{name: Example.name, schema: ExampleSchema}])]
+  imports: [MongooseModule.forFeature([{name: Example.name, schema: ExampleSchema}])],
+  exports: [ExamplesService]
 })
 export class ExamplesModule {}

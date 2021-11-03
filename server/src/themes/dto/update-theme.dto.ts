@@ -1,4 +1,5 @@
-export class CreateThemeDto {
+export class UpdateThemeDto {
+    readonly id: string
     readonly name: string
     readonly definitionsId: string[]
     readonly formulasId: string[]

@@ -49,7 +49,7 @@ export class UsersService {
         let fullProgress = updatedUser.progress.reduce((prev, curr) => prev+= curr.progress,0)
 
         // логика для расчета полного прогресса
-
+        // перенести сюда themes module и посчитать кол-во
         return await updatedUser.save()
     }
 }

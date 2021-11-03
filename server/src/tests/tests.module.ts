@@ -7,6 +7,7 @@ import {Test, TestSchema} from "./tests.schema";
 @Module({
   controllers: [TestsController],
   providers: [TestsService],
-  imports: [MongooseModule.forFeature([{name: Test.name, schema: TestSchema}])]
+  imports: [MongooseModule.forFeature([{name: Test.name, schema: TestSchema}])],
+  exports: [TestsService]
 })
 export class TestsModule {}

@@ -13,7 +13,8 @@ import {ThemesModule} from "../themes/themes.module";
         MongooseModule.forFeature([{name: User.name, schema: UserSchema}]),
         FormulasModule,
         ThemesModule
-    ]
+    ],
+    exports: [UsersService]
 })
 export class UsersModule {
 }

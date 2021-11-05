@@ -1,16 +1,18 @@
-import {Body, Controller, Get, Param, Patch, Post} from '@nestjs/common';
+import {Body, Controller, Get, Param, Patch, Post, UseGuards} from '@nestjs/common';
 import {UsersService} from "./users.service";
 import {CreateUserDto} from "./dto/create-user.dto";
 import {UpdateProgressDto} from "./dto/update-progress.dto";
 import {User} from "./user.schema";
 import {LikeFormulaDto} from "./dto/like-formula.dto";
 import {ApiBody} from "@nestjs/swagger";
+import {JwtAuthGuard} from "../auth/jwt-auth.guard";
 
 @Controller('users')
 export class UsersController {
     constructor(private userService: UsersService) {
     }
 
+    @UseGuards(JwtAuthGuard)
     @Get()
     getAllUsers() {
         return this.userService.findAll()

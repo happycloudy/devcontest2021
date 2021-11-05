@@ -35,6 +35,12 @@ export class UsersService {
         return user
     }
 
+    async findOneByName(name: string): Promise<User> {
+        const user = await this.userModel.findOne({username: name})
+        await this.includeDeps(user)
+        return user
+    }
+
     async includeDeps(user: User): Promise<User> {
         user.likedFormulas = await Promise.all(user.likedFormulasId.map(async id => {
             return await this.formulasService.findOne(id)

@@ -80,3 +80,35 @@ body {
 .floating-button:hover {
     border: 5px solid #D35400;
 }
+
+.Line {
+    width: 80%;
+    border: 1px solid #808080;
+}
+
+.Registration {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 1403px;
+    padding: 100px;
+}
+
+.Registration-p {
+    font-size: 48px;
+    line-height: 56px;
+    color: #FFFFFF;
+}
+
+.Registration-form {
+    width: 1068px;
+    height: 954px;
+    background: #34495E;
+    box-shadow: 0px 4px 4px rgba(41, 128, 185, 0.25);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}

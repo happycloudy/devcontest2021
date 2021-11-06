@@ -5,14 +5,13 @@ import {UpdateProgressDto} from "./dto/update-progress.dto";
 import {User} from "./user.schema";
 import {LikeFormulaDto} from "./dto/like-formula.dto";
 import {ApiBody} from "@nestjs/swagger";
-import {JwtAuthGuard} from "../auth/jwt-auth.guard";
+import {Public} from "../public.decorator";
 
 @Controller('users')
 export class UsersController {
     constructor(private userService: UsersService) {
     }
 
-    @UseGuards(JwtAuthGuard)
     @Get()
     getAllUsers() {
         return this.userService.findAll()
@@ -23,6 +22,7 @@ export class UsersController {
         return this.userService.findOne(id)
     }
 
+    @Public()
     @Post()
     @ApiBody({type: CreateUserDto})
     async createUser(@Body() createUserDto: CreateUserDto): Promise<User> {

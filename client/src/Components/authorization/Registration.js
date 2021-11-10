@@ -1,66 +1,60 @@
 import React, {useState} from 'react';
-import {TextField} from "@mui/material";
-import axios from "axios";
+import TextField from '@mui/material/TextField';
+
+
+const styles = theme => ({
+    textField: {
+
+    },
+    input: {
+        fullWidth: 'true',
+        color: 'white'
+    }
+});
+
 
 const Registration = () => {
-    const [username, setUsername] = useState('')
+    const [ClickStyle, setClickStyle] = useState("floating-button-ok");
 
-    const handleUsername = async (e) => {
-        await setUsername(e.target.value)
+    const HandleClick = (e) => {
+        e.preventDefault();
+        setClickStyle("floating-button-ok-clicked")
     }
 
-    const handleForm = async e => {
-        // рега
-        // const res = await axios.post('http://localhost:3000/users', {
-        //     name1: 'name1',
-        //     name2: 'name2',
-        //     name3: 'name3',
-        //     username: 'username',
-        //     // password: 'passwod'
-        // }).catch(() => {
-        //     console.log('error')
-        // })
-
-
-        // // логин
-        // const res = await axios.post('http://localhost:3000/auth/login', {
-        //     username: 'aboba123',
-        //     password: 'lepsi'
-        // })
-        //
-        // console.log(res.data)
-        //
-        // localStorage.setItem('jwtToken', res.data.access_token)
-
-
-        // // запросы после логина
-        // const res = await axios.get('http://localhost:3000/themes')
-        //
-        // console.log(res.data)
+    const HandleClick2 = () => {
+        setClickStyle("floating-button-ok")
     }
-
 
     return (
         <form className='Registration'>
-            {
-                username === "Абобус" ?
-                    <>
-                        <div className='Registration-p'>
-                            Регистрация
-                        </div>
-                        <div className='Registration-form'>
-                            <TextField id="standard-basic" label="username" variant="standard" onChange={handleUsername}
-                                       value={username}/>
-                        </div>
-
-                        <input type='submit' value='Зарегистрироваться'/>
-                    </> :
-                    <div>
-                        Ты абобус
+            <div className='Registration-p'>
+                Регистрация
+            </div>
+            <div className='Registration-form'>
+                <div className='Registration-form-input'>
+                    <div className='Registration-form-input-only'>
+                        <TextField fullWidth='true' id="name1" label="Фамилия" variant="standard" />
                     </div>
-
-            }
-
+                    <div className='Registration-form-input-only'>
+                        <TextField fullWidth='true' id="name2" label="Имя" variant="standard" />
+                    </div>
+                    <div className='Registration-form-input-only'>
+                        <TextField fullWidth='true' id="name3" label="Отчество" variant="standard" />
+                    </div>
+                    <div className='Registration-form-input-only'>
+                        <TextField fullWidth='true' id="login" label="Никнейм" variant="standard" />
+                    </div>
+                    <div className='Registration-form-input-only'>
+                        <TextField fullWidth='true' id="password" label="Пароль" variant="standard" />
+                    </div>
+                    <div className='Registration-form-input-only'>
+                        <TextField fullWidth='true' id="password" label="Повторите пароль" variant="standard" />
+                    </div>
+                </div>
+                    <div className='Registration-form-submit'>
+                        <button className={ClickStyle} type='submit' onMouseDown = {HandleClick} onMouseUp = {HandleClick2}>Вход</button>
+                    </div>
+            </div>
         </form>
     );
 };

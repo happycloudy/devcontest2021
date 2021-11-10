@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from "react-router-dom";
 
 const LogIn = () => {
     const [ClickStyle, setClickStyle] = useState("floating-button");
@@ -15,10 +16,12 @@ const LogIn = () => {
     return (
         <div className='Login'>
             <form action='#'>
-                <button className={ClickStyle} type='submit' onMouseDown = {HandleClick} onMouseUp = {HandleClick2}>Вход</button>
+                <Link to={'/profile'} className={ClickStyle} type='submit' onMouseDown = {HandleClick} onMouseUp = {HandleClick2}>Вход</Link>
             </form>
         </div>
     );
 };
 
 export default LogIn;
+
+// to={'/login'}

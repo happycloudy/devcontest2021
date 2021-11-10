@@ -1,26 +1,15 @@
-import AppHeader from "./Components/AppHeader";
 import React from "react";
-import  './App.css'
-import Line from "./Components/Line";
-import IndexBlock1 from "./Components/IndexBlock1";
-import IndexBlock2 from "./Components/IndexBlock2";
-import IndexBlock3 from "./Components/IndexBlock3";
-import IndexBlock4 from "./Components/IndexBlock4";
+import Index from "./components/index";
+import { Routes, Route } from "../node_modules/react-router-dom/index";
+import Profile from "./components/profile/Profile";
 
 function App() {
   return (
     <div className="App">
-        <AppHeader/>
-        <Line/>
-        <IndexBlock1/>
-        <Line/>
-        <IndexBlock2/>
-        <Line/>
-        <IndexBlock3/>
-        <Line/>
-        <IndexBlock4/>
-        <Line/>
-        <AppHeader/>
+        <Routes>
+            <Route path={'/'} element={<Index/>}/>
+            <Route path={'/profile'} element={<Profile/>}/>
+        </Routes>
     </div>
   );
 }

@@ -1,0 +1,64 @@
+.profile__main-wrap {
+    height: 100vh; /*  TODO: убрать  */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile__main-wrap_item {
+    display: flex;
+    justify-content: center;
+    font-size: 48px;
+    color: white;
+}
+
+.profile_themes-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+
+
+.profile__liked {
+    height: 100vh;
+}
+
+.profile__liked-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.profile__liked_formulas-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*height: 50%;*/
+}
+
+.profile__liked_formulas-container {
+    justify-content: center;
+    width: 60%;
+    margin-top: 50px;
+}
+
+.profile__liked_formulas {
+    background: #34495E;
+    box-shadow: 0 4px 4px rgba(41, 128, 185, 0.25);
+    border-radius: 10px;
+    width: 40%;
+    height: 70%;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.profile__liked_formula {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    font-size: 36px;
+}

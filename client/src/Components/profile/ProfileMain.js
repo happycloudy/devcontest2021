@@ -9,7 +9,7 @@ const ProfileMain = () => {
                     Иван Иванович Иванов (User)
                 </Grid>
                 <Grid item xs={6} className='profile__main-wrap_item'>
-                    <img alt={'Картинка профиля'}/>
+                    <img alt={'Картинка профиля'} />
                 </Grid>
             </Grid>
         </section>

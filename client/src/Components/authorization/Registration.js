@@ -60,3 +60,43 @@ const Registration = () => {
 };
 
 export default Registration;
+
+
+
+
+// логин пользователя
+// const handleSubmit = async () => {
+//     const res = await axios.post('http://localhost:3001/auth/login', {
+//         username: 'aboba123',
+//         password: 'lepsi'
+//     }).catch(() => {})
+//
+//
+//     console.log(res)
+//     if (res === undefined) return
+//
+//     localStorage.setItem('access_token', res.data.access_token)
+// }
+
+
+// регистрация пользователя
+// const handleSubmit = async () => {
+//     const res = await axios.post('http://localhost:3001/users', {
+//         name1: "Аскет",
+//         name2: "Стас",
+//         name3: "Эльпримович",
+//         username: 'stasAsket',
+//         password: 'XxxElPrimo228xxX???'
+//     }).catch(() => {})
+//
+//     const loginRes = await axios.post('http://localhost:3001/auth/login', {
+//         username: 'stasAsket',
+//         password: 'XxxElPrimo228xxX???'
+//     }).catch(() => {})
+//
+//
+//     console.log(loginRes)
+//     if (res === undefined) return
+//
+//     localStorage.setItem('access_token', loginRes.data.access_token)
+// }

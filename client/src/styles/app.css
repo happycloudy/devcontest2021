@@ -5,7 +5,70 @@
     font-weight: normal;
 }
 
+.line-wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.line-wrap-bottom {
+    margin-top: 200px;
+}
+
+.line {
+    width: 75%;
+    border: 1px solid #808080;
+}
+
+.bottom_margin{
+}
+
 .title-text {
-    font-size: 36px;
+    font-size: 36px !important;
     color: white;
+}
+
+.text-orange {
+    color: #D35400;
+}
+
+.custom__button-orange-wrap {
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+}
+
+.custom__button-orange-border {
+    outline: 1px solid #D35400;
+    box-sizing: border-box;
+    border-radius: 100px;
+    transition: 0.1s;
+    background-size: 0 100%;
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(#D35400, #D35400);
+}
+
+.custom__button-orange-text {
+    text-align: center;
+    padding: 20px 20px;
+    font-size: 24px;
+}
+
+.custom__button-orange-wrap:hover .custom__button-orange-border {
+    outline: 5px solid #D35400;
+    transition: .1s;
+}
+
+.custom__button-orange_active {
+    outline: 5px solid #D35400;
+    animation: button-fill-animation 0.5s;
+}
+
+@keyframes button-fill-animation {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
 }

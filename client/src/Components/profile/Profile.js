@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from "../header/Header";
-import Line from "../Line";
+import Line from "../global/Line";
 import ProfileMain from "./ProfileMain";
 import '../../styles/profile.css'
 import Themes from "./Themes";

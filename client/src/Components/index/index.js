@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from "../header/Header";
-import Line from "../Line";
+import Line from "../global/Line";
 import IndexBlock1 from "./IndexBlock1";
 import IndexBlock2 from "./IndexBlock2";
 import IndexBlock3 from "./IndexBlock3";

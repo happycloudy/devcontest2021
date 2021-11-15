@@ -18,4 +18,6 @@ class Task {
     readonly answer3: string
     @ApiProperty()
     readonly answer4: string
+    @ApiProperty()
+    readonly rightAnswer: number
 }

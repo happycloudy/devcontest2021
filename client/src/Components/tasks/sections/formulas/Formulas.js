@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Grid} from "@mui/material";
 import CustomOrangeButtonWithText from "../../../global/CustomOrangeButtonWithText";
+import Formula from "./Formula";
 
 const Formulas = ({task, setPage}) => {
     const [formulas] = useState(() => task.formulas)
@@ -8,7 +9,7 @@ const Formulas = ({task, setPage}) => {
     const handleNextPage = () => {
         setTimeout(() => {
             setPage({task: task, activePage: 'examples'})
-        },500)
+        }, 500)
     }
 
     return (
@@ -25,17 +26,24 @@ const Formulas = ({task, setPage}) => {
                         Формулы
                     </div>
                 </div>
+                {
+                    formulas[0] ?
+                        <Grid container className="formulas-main">
+                            {
+                                formulas.map(formula =>
+                                    <Grid item key={formula._id} xs={6} className="formula">
+                                        <Formula formula={formula.formula}/>
+                                    </Grid>
+                                )
 
-                <Grid container className="formulas">
-                    {
-                        formulas.map(formula =>
-                            <Grid item key={formula._id} xs={6} className="formula">
-                                {formula.formula}
-                            </Grid>
-                        )
-                    }
-                </Grid>
+                            }
+                        </Grid> :
 
+                        <div className='title-text not-found__wrap' style={{marginTop: '100px'}}>
+                            Формул нету
+                            <Formula/>
+                        </div>
+                }
                 <div className="button__next-section">
                     <div className="button__next-wrap" onClick={handleNextPage}>
                         <CustomOrangeButtonWithText text={'Далее'}/>

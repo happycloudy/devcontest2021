@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Accordion, AccordionDetails, AccordionSummary, Typography} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CustomOrangeButtonWithText from "../../../global/CustomOrangeButtonWithText";
+import {MathJax, MathJaxContext} from "better-react-mathjax";
 
 const Examples = ({task, setPage}) => {
     const [examples] = useState(() => task.examples)
@@ -38,23 +39,33 @@ const Examples = ({task, setPage}) => {
                             examples.map(example =>
                                 <Accordion key={example._id} className="definitions__accordion" expanded={expanded === example.name} onChange={handleChange(example.name)}>
                                     <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon/>}
+                                        expandIcon={<ExpandMoreIcon className="expand-icon"/>}
                                         aria-controls="panel1a-content"
                                         id="panel1a-header"
                                         className="definitions__accordion-summary"
                                     >
                                         <Typography
-                                            className="definitions__accordion-summary_text">{example.name}</Typography>
+                                            className="definitions__accordion-summary_text">
+                                            <MathJaxContext>
+                                                <MathJax>
+                                                    {example.name}
+                                                </MathJax>
+                                            </MathJaxContext>
+                                        </Typography>
                                     </AccordionSummary>
                                     <AccordionDetails className="definitions__accordion-details">
                                         <Typography className="definitions__accordion-details_text">
-                                            {example.description}
+                                            <MathJaxContext>
+                                                <MathJax>
+                                                    {example.example}
+                                                </MathJax>
+                                            </MathJaxContext>
                                         </Typography>
                                     </AccordionDetails>
                                 </Accordion>
                             ) :
                             <div className='title-text not-found__wrap'>
-                                Определений нету
+                                Примеров нету
                             </div>
                     }
 

@@ -6,10 +6,12 @@ import '../../styles/header.css'
 
 const Header = () => {
     return (
-        <div className='AppHeader'>
-            <Logo/>
-            <InfoAndTasks/>
-            <LogIn/>
+        <div className='header-container'>
+            <header>
+                <Logo/>
+                <InfoAndTasks/>
+                <LogIn/>
+            </header>
         </div>
     );
 };

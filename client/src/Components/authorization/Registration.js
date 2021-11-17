@@ -5,6 +5,7 @@ import axios from 'axios'
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import createTheme from "@mui/material/styles/createTheme";
 import '../../styles/auth.css'
+import {Fade} from "react-awesome-reveal";
 
 const theme = createTheme({
     components: {
@@ -110,38 +111,40 @@ const Registration = () => {
     }
 
     return (
-        <form className='Registration'>
-            <div className='Registration-p'>
-                Регистрация
-            </div>
-            <div className='Registration-form'>
-                <div className='Registration-form-input'>
-                    <ThemeProvider theme={theme}>
-                    <div className='Registration-form-input-only'>
-                        <TextField  fullWidth id="name1" label="Фамилия" variant="filled" onChange={handleChangeName1} inputProps={inputProps}/>
-                    </div>
-                    <div className='Registration-form-input-only'>
-                        <TextField fullWidth id="name2" label="Имя" variant="filled" onChange={handleChangeName2} inputProps={inputProps}/>
-                    </div>
-                    <div className='Registration-form-input-only'>
-                        <TextField fullWidth id="name3" label="Отчество" variant="filled" onChange={handleChangeName3} inputProps={inputProps}/>
-                    </div>
-                    <div className='Registration-form-input-only'>
-                        <TextField fullWidth id="login" label="Никнейм" variant="filled" onChange={handleChangeUsername} inputProps={inputProps}/>
-                    </div>
-                    <div className='Registration-form-input-only'>
-                        <TextField fullWidth id="password" label="Пароль" variant="filled" type="password" onChange={handleChangePassword} inputProps={inputProps}/>
-                    </div>
-                    <div className='Registration-form-input-only'>
-                        <TextField fullWidth id="passwordRepeat" label="Повторите пароль" variant="filled" type="password" onChange={handleChangePasswordRepeat} inputProps={inputProps}/>
-                    </div>
-                    </ThemeProvider>
+        <Fade>
+            <form className='Registration'>
+                <div className='Registration-p'>
+                    Регистрация
                 </div>
+                <div className='Registration-form'>
+                    <div className='Registration-form-input'>
+                        <ThemeProvider theme={theme}>
+                            <div className='Registration-form-input-only'>
+                                <TextField  fullWidth id="name1" label="Фамилия" variant="filled" onChange={handleChangeName1} inputProps={inputProps}/>
+                            </div>
+                            <div className='Registration-form-input-only'>
+                                <TextField fullWidth id="name2" label="Имя" variant="filled" onChange={handleChangeName2} inputProps={inputProps}/>
+                            </div>
+                            <div className='Registration-form-input-only'>
+                                <TextField fullWidth id="name3" label="Отчество" variant="filled" onChange={handleChangeName3} inputProps={inputProps}/>
+                            </div>
+                            <div className='Registration-form-input-only'>
+                                <TextField fullWidth id="login" label="Никнейм" variant="filled" onChange={handleChangeUsername} inputProps={inputProps}/>
+                            </div>
+                            <div className='Registration-form-input-only'>
+                                <TextField fullWidth id="password" label="Пароль" variant="filled" type="password" onChange={handleChangePassword} inputProps={inputProps}/>
+                            </div>
+                            <div className='Registration-form-input-only'>
+                                <TextField fullWidth id="passwordRepeat" label="Повторите пароль" variant="filled" type="password" onChange={handleChangePasswordRepeat} inputProps={inputProps}/>
+                            </div>
+                        </ThemeProvider>
+                    </div>
                     <div className='Registration-form-submit'>
                         <CustomOrangeButtonWithText text='Подтвердить' onClick={handleSubmit}/>
                     </div>
-            </div>
-        </form>
+                </div>
+            </form>
+        </Fade>
     );
 };
 

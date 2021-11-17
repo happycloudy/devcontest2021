@@ -5,6 +5,7 @@ import {MongooseModule} from "@nestjs/mongoose";
 import {User, UserSchema} from "./user.schema";
 import {FormulasModule} from "../formulas/formulas.module";
 import {ThemesModule} from "../themes/themes.module";
+import {JwtModule} from "@nestjs/jwt";
 
 @Module({
     controllers: [UsersController],
@@ -12,7 +13,8 @@ import {ThemesModule} from "../themes/themes.module";
     imports: [
         MongooseModule.forFeature([{name: User.name, schema: UserSchema}]),
         FormulasModule,
-        ThemesModule
+        ThemesModule,
+        JwtModule.register({})
     ],
     exports: [UsersService]
 })

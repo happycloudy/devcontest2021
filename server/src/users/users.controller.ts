@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Patch, Post, UseGuards} from '@nestjs/common';
+import {Body, Controller, Get, Param, Patch, Post, Headers} from '@nestjs/common';
 import {UsersService} from "./users.service";
 import {CreateUserDto} from "./dto/create-user.dto";
 import {UpdateProgressDto} from "./dto/update-progress.dto";
@@ -6,20 +6,36 @@ import {User} from "./user.schema";
 import {LikeFormulaDto} from "./dto/like-formula.dto";
 import {ApiBody} from "@nestjs/swagger";
 import {Public} from "../public.decorator";
+import {JwtService} from "@nestjs/jwt";
 
 @Controller('users')
 export class UsersController {
-    constructor(private userService: UsersService) {
-    }
+    constructor(private userService: UsersService,
+                private jwtService:JwtService
+    ) {}
 
     @Get()
     getAllUsers() {
         return this.userService.findAll()
     }
 
-    @Get(':id')
+    @Public()
+    @Get('id/:id')
     getOne(@Param('id') id: string) {
         return this.userService.findOne(id)
+    }
+
+    @Public()
+    @Get('/username/:username')
+    getOneByUsername(@Param('username') username: string){
+        return this.userService.findOneByName(username)
+    }
+
+    @Get('/token')
+    getOneByUserToken(@Headers('authorization') token: string) {
+        token = token.slice(7)
+        let decodedToken: any = this.jwtService.decode(token)
+        return this.userService.findOneByName(decodedToken.username)
     }
 
     @Public()

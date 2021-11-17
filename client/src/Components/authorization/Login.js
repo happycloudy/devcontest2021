@@ -5,6 +5,11 @@ import axios from 'axios'
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import createTheme from "@mui/material/styles/createTheme";
 import '../../styles/auth.css'
+import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {logInAction} from "./reducers/authReducer";
+import {Fade} from "react-awesome-reveal";
+
 
 const theme = createTheme({
     components: {
@@ -55,13 +60,14 @@ const inputProps = {
 };
 
 const Login = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const dispatch = useDispatch()
 
-    const [Username, setUsername] = useState('');
     const handleChangeUsername = (e) => {
         setUsername(e.target.value);
     }
 
-    const [Password, setPassword] = useState('');
     const handleChangePassword = (e) => {
         setPassword(e.target.value);
     }
@@ -69,45 +75,43 @@ const Login = () => {
     const handleSubmit = async (e) => {
         // TODO:сделать функцию ошибки авторизации
         const res = await axios.post('http://localhost:3001/auth/login', {
-            username: e.target.value,
-            password: e.target.value
-        }).catch(() => {})
-
-
-        console.log(res)
+            username: username,
+            password: password
+        }).catch(() => {
+            console.log('Ошибка авторизации')
+        })
         if (res === undefined) return
-
-        localStorage.setItem('access_token', res.data.access_token)
-    }
-
-    const handleClick = () => {
-
+        dispatch(logInAction({token: res.data.access_token , user: res.data.user}))
     }
 
     return (
-        <form className='Login'>
-            <div className='Login-p'>
-                Вход
-            </div>
-            <div className='Login-form'>
-                <div className='Login-form-input'>
-                    <ThemeProvider theme={theme}>
-                        <div className='Login-form-input-only'>
-                            <TextField fullWidth id="login" label="Никнейм" variant="filled" onChange={handleChangeUsername} inputProps={inputProps}/>
-                        </div>
-                        <div className='Login-form-input-only'>
-                            <TextField fullWidth id="password" label="Пароль" variant="filled" type="password" onChange={handleChangePassword} inputProps={inputProps}/>
-                        </div>
-                    </ThemeProvider>
+        <Fade>
+            <form className='Login'>
+                <div className='Login-p'>
+                    Вход
                 </div>
-                <div className='Login-form-submit'>
-                    <CustomOrangeButtonWithText text='Войти' onClick={handleSubmit}/>
+                <div className='Login-form'>
+                    <div className='Login-form-input'>
+                        <ThemeProvider theme={theme}>
+                            <div className='Login-form-input-only'>
+                                <TextField fullWidth id="login" label="Никнейм" variant="filled" onChange={handleChangeUsername} inputProps={inputProps}/>
+                            </div>
+                            <div className='Login-form-input-only'>
+                                <TextField fullWidth id="password" label="Пароль" variant="filled" type="password" onChange={handleChangePassword} inputProps={inputProps}/>
+                            </div>
+                        </ThemeProvider>
+                    </div>
+                    <div className='Login-form-submit' >
+                       <Link to={'/'} style={{width: '100%', textDecoration: 'none', color: 'white'}}>
+                           <CustomOrangeButtonWithText text='Войти' onClick={handleSubmit}/>
+                       </Link>
+                    </div>
+                    <Link to={'/registration'} className='Login-form-reg' >
+                        <CustomOrangeButtonWithText text='Регистрация' />
+                    </Link>
                 </div>
-                <div className='Login-form-reg'>
-                    <CustomOrangeButtonWithText text='Регистрация' onClick={handleClick}/>
-                </div>
-            </div>
-        </form>
+            </form>
+        </Fade>
     );
 };
 

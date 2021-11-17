@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Index from "./components/index";
 import {Routes, Route} from "../node_modules/react-router-dom/index";
 import Profile from "./components/profile/Profile";
@@ -9,9 +9,19 @@ import Login from "./components/authorization/Login";
 import Registration from "./components/authorization/Registration";
 import Header from "./components/header/Header";
 import Line from "./components/global/Line";
+import {useDispatch} from "react-redux";
+import {loadUser} from "./loadUser";
 
 function App() {
     axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        if(localStorage.getItem('access_token') !== null){
+            dispatch(loadUser())
+        }
+    },[dispatch])
+
     return (
         <div className="App">
             <Header/>

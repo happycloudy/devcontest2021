@@ -22,7 +22,7 @@ const CustomOrangeButtonWithText = ({text, onClick}) => {
                     </div>
                     :
                     <div className="custom__button-orange-border">
-                        <div className="custom__button-orange-text">
+                        <div className="custom__button-orange-text" onClick={onClick}>
                             {text}
                         </div>
                     </div>

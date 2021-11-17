@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from "../header/Header";
 import Line from "../global/Line";
 import ProfileMain from "./ProfileMain";
 import '../../styles/profile.css'
@@ -9,15 +8,11 @@ import Liked from "./Liked";
 const Profile = () => {
     return (
         <>
-            <Header/>
-            <Line/>
             <ProfileMain/>
             <Line/>
             <Themes/>
             <Line/>
             <Liked/>
-            <Line/>
-            <Header/>
         </>
     );
 };

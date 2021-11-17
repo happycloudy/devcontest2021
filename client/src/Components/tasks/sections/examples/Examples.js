@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Accordion, AccordionDetails, AccordionSummary, Typography} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CustomOrangeButtonWithText from "../../../global/CustomOrangeButtonWithText";
 import {MathJax, MathJaxContext} from "better-react-mathjax";
 
@@ -39,7 +38,7 @@ const Examples = ({task, setPage}) => {
                             examples.map(example =>
                                 <Accordion key={example._id} className="definitions__accordion" expanded={expanded === example.name} onChange={handleChange(example.name)}>
                                     <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon className="expand-icon"/>}
+                                        // expandIcon={<ExpandMoreIcon className="expand-icon"/>}
                                         aria-controls="panel1a-content"
                                         id="panel1a-header"
                                         className="definitions__accordion-summary"

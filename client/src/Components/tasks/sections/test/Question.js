@@ -1,20 +1,21 @@
 import React from 'react';
 import {FormControl, FormControlLabel, Radio, RadioGroup} from "@mui/material";
+import {MathJax, MathJaxContext} from "better-react-mathjax";
 
-
-const Question = ({value, setValue}) => {
-    const styledRadio = {
+const styledRadio = {
+    color: '#D35400',
+    '&.Mui-checked': {
         color: '#D35400',
-        '&.Mui-checked': {
-            color: '#D35400',
-        },
+    },
+}
+const styledLabel = { // TODO: переделать
+    root: {
+        fontSize: '24px'
     }
+}
 
-    const styledLabel = { // TODO: переделать
-        root: {
-            fontSize: '24px'
-        }
-    }
+
+const Question = ({value, setValue, test}) => {
 
     const handleChange = (event) => {
         setValue(event.target.value);
@@ -28,10 +29,20 @@ const Question = ({value, setValue}) => {
                 value={value}
                 onChange={handleChange}
             >
-                <FormControlLabel value="1" control={<Radio sx={styledRadio}/>} label="Female" sx={styledLabel}/>
-                <FormControlLabel value="2" control={<Radio sx={styledRadio}/>} label="Male" sx={styledLabel}/>
-                <FormControlLabel value="3" control={<Radio sx={styledRadio}/>} label="Male" sx={styledLabel}/>
-                <FormControlLabel value="4" control={<Radio sx={styledRadio}/>} label="Male" sx={styledLabel}/>
+                <MathJaxContext>
+                    <MathJax dynamic inline>
+                        <FormControlLabel value={1} control={<Radio sx={styledRadio}/>} label={test.answer1} sx={styledLabel}/>
+                    </MathJax>
+                    <MathJax dynamic inline>
+                        <FormControlLabel value={2} control={<Radio sx={styledRadio}/>} label={test.answer2} sx={styledLabel}/>
+                    </MathJax>
+                    <MathJax dynamic inline>
+                        <FormControlLabel value={3} control={<Radio sx={styledRadio}/>} label={test.answer3} sx={styledLabel}/>
+                    </MathJax>
+                    <MathJax dynamic inline>
+                        <FormControlLabel value={4} control={<Radio sx={styledRadio}/>} label={test.answer4} sx={styledLabel}/>
+                    </MathJax>
+                </MathJaxContext>
             </RadioGroup>
         </FormControl>
     );

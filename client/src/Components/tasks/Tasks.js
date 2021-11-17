@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import Header from "../header/Header";
-import Line from "../global/Line";
 import TasksWindow from "./TasksWindow";
 import '../../styles/tasks.css'
 import axios from "axios";
@@ -9,7 +7,9 @@ import {loadTasksAction} from "./reducers/tasksReducer";
 import Definitions from "./sections/definitions/Definitions";
 import Formulas from "./sections/formulas/Formulas";
 import Examples from "./sections/examples/Examples";
-import Test from "./sections/test/Test";
+import TestPage from "./sections/test/TestPage";
+import TestResult from "./sections/test/TestResult";
+import {Fade, Slide} from "react-awesome-reveal";
 
 const Tasks = () => {
     //state
@@ -18,13 +18,12 @@ const Tasks = () => {
         task: {}
     })
 
-
     //redux logic here / all requests
     const dispatch = useDispatch()
 
     const fetchTasks = () => {
         axios.get('http://localhost:3001/themes').then(res => {
-            dispatch(loadTasksAction(res.data)) // вызывает memory leak
+            dispatch(loadTasksAction(res.data))
         })
     }
     fetchTasks()
@@ -32,13 +31,21 @@ const Tasks = () => {
     const switchPage = () => {
         switch (page.activePage) {
             case 'definitions':
-                return <Definitions setPage={setPage} task={page.task}/>
+                return <Slide direction={'right'} >
+                    <Definitions setPage={setPage} task={page.task}/>
+                </Slide>
             case 'formulas':
-                return <Formulas setPage={setPage} task={page.task}/>
+                return <Fade>
+                    <Formulas setPage={setPage} task={page.task}/>
+                </Fade>
             case 'examples':
                 return <Examples setPage={setPage} task={page.task}/>
             case 'test':
-                return <Test setPage={setPage} task={page.task}/>
+                return <TestPage setPage={setPage} task={page.task}/>
+            case 'test-result':
+                return <Fade>
+                    <TestResult setPage={setPage} task={page.task}/>
+                </Fade>
             default:
                 return <TasksWindow setPage={setPage}/>
         }
@@ -46,13 +53,9 @@ const Tasks = () => {
 
     return (
         <>
-            <Header/>
-            <Line/>
             {
                 switchPage()
             }
-            <Line isBottom/>
-            <Header/>
         </>
     );
 };

@@ -3,6 +3,8 @@
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .line-wrap {
@@ -10,6 +12,7 @@
     justify-content: center;
     width: 100%;
 }
+
 .line-wrap-bottom {
     margin-top: 200px;
 }
@@ -19,7 +22,7 @@
     border: 1px solid #808080;
 }
 
-.bottom_margin{
+.bottom_margin {
 }
 
 .title-text {
@@ -71,4 +74,13 @@
     100% {
         background-size: 100% 100%;
     }
+}
+
+
+.bg-green {
+    background-color: #27AE60;
+}
+
+.bg-red {
+    background-color: #C0392B;
 }

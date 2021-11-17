@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from "../header/Header";
 import Line from "../global/Line";
 import IndexBlock1 from "./IndexBlock1";
 import IndexBlock2 from "./IndexBlock2";
@@ -10,8 +9,6 @@ import  '../../styles/index.css'
 const Index = () => {
     return (
         <div>
-            <Header/>
-            <Line/>
             <IndexBlock1/>
             <Line/>
             <IndexBlock2/>
@@ -19,8 +16,6 @@ const Index = () => {
             <IndexBlock3/>
             <Line/>
             <IndexBlock4/>
-            <Line/>
-            <Header/>
         </div>
     );
 };

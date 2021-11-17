@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Accordion, AccordionDetails, AccordionSummary, Typography} from "@mui/material";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CustomOrangeButtonWithText from "../../../global/CustomOrangeButtonWithText";
 
 const Definitions = ({task, setPage}) => {
@@ -40,7 +39,7 @@ const Definitions = ({task, setPage}) => {
                                            expanded={expanded === definition.name}
                                            onChange={handleChange(definition.name)}>
                                     <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon className="expand-icon"/>}
+                                        // expandIcon={<ExpandMoreIcon className="expand-icon"/>}
                                         aria-controls="panel1a-content"
                                         id="panel1a-header"
                                         className="definitions__accordion-summary"

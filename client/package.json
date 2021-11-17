@@ -13,6 +13,7 @@
     "better-react-mathjax": "^1.0.3",
     "history": "^5.1.0",
     "react": "^17.0.2",
+    "react-awesome-reveal": "^3.8.1",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",

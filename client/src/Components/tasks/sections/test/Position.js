@@ -12,37 +12,21 @@ const Position = ({tests, handlePosition, position}) => {
     return (
         <div className='test__position'>
             {
-                tests.map((test,id) =>
-                    <Radio
-                        key={test._id}
-                        checked={position === id}
-                        onClick={handlePosition}
-                        value={id}
-                        name="radio-buttons"
-                        inputProps={{'aria-label': 'A'}}
-                        sx={styledRadio}
-                        size='small'
-                    />
+                tests[0].tasks.map((test,id) =>
+                    <div key={test.task} style={{display: 'inline'}}>
+                        <Radio
+
+                            checked={position === id}
+                            onClick={handlePosition}
+                            value={id}
+                            name="radio-buttons"
+                            inputProps={{'aria-label': 'A'}}
+                            sx={styledRadio}
+                            size='small'
+                        />
+                    </div>
                 )
             }
-            <Radio
-                checked={position === 0}
-                onClick={handlePosition}
-                value={0}
-                name="radio-buttons"
-                inputProps={{'aria-label': 'A'}}
-                sx={styledRadio}
-                size='small'
-            />
-            <Radio
-                checked={position === 1}
-                onClick={handlePosition}
-                value={1}
-                name="radio-buttons"
-                inputProps={{'aria-label': 'B'}}
-                sx={styledRadio}
-                size='small'
-            />
         </div>
     );
 };

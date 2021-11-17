@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const CustomOrangeButtonWithText = ({text}) => {
+const CustomOrangeButtonWithText = ({text, onClick}) => {
     const [active, setActive] = useState(false)
 
     const handleClick = () => {
@@ -16,7 +16,7 @@ const CustomOrangeButtonWithText = ({text}) => {
             {
                 active?
                     <div className="custom__button-orange-border custom__button-orange_active">
-                        <div className="custom__button-orange-text">
+                        <div className="custom__button-orange-text" onClick={onClick}>
                             {text}
                         </div>
                     </div>

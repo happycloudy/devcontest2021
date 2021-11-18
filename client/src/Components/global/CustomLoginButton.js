@@ -16,7 +16,7 @@ const CustomLoginButton = ({user, text2, onClick, handleLogOut}) => {
                         Общий прогресс:
                     </div>
                     <div>
-                        <span className={'text-orange'}>{text2}</span>%
+                        <span className={'text-orange'}>{text2.toFixed(2)}</span>%
                     </div>
                 </div>
                 <div className={'vertical-line'}/>
@@ -24,6 +24,7 @@ const CustomLoginButton = ({user, text2, onClick, handleLogOut}) => {
                     <img
                     src='logout.png'
                     width={30}
+                    alt={'logout'}
                     />
                 </div>
             </div>

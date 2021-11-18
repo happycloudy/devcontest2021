@@ -76,7 +76,6 @@ const Login = () => {
     }
 
     const handleSubmit = async (e) => {
-        // TODO:сделать функцию ошибки авторизации
         const res = await axios.post('http://localhost:3001/auth/login', {
             username: username,
             password: password
@@ -97,8 +96,7 @@ const Login = () => {
         <>
             <DialogWindow text={'Неверный ввод'} status={error} handleClose={handleClose}/>
             <Fade cascade>
-                <form className='Login'>
-
+                <form className='Login' onSubmit={handleSubmit}>
                     <div className='Login-p'>
                         Вход
                     </div>

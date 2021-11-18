@@ -9,7 +9,7 @@ import Formulas from "./sections/formulas/Formulas";
 import Examples from "./sections/examples/Examples";
 import TestPage from "./sections/test/TestPage";
 import TestResult from "./sections/test/TestResult";
-import {Fade, Slide} from "react-awesome-reveal";
+import {Fade} from "react-awesome-reveal";
 
 const Tasks = () => {
     //state
@@ -48,7 +48,7 @@ const Tasks = () => {
     }
 
     return (
-        <Fade>
+        <Fade cascade childClassName={'tasks__card-wrap'}>
             {
                 switchPage()
             }

@@ -51,10 +51,12 @@ export class UsersService {
 
     async updateProgress(updateProgressDto: UpdateProgressDto): Promise<User> {
         const updatedUser = await this.userModel.findById(updateProgressDto.id)
-        let findProgress = updatedUser.progress.find(progress => progress.name === updateProgressDto.name)
-
+        let findProgress = await updatedUser.progress.find(progress => {
+            console.log(progress.id, updateProgressDto.themeId)
+            return progress.id === updateProgressDto.themeId
+        })
         if (findProgress) {
-            let filteredProgress = updatedUser.progress.filter(progress => progress.name !== updateProgressDto.name)
+            let filteredProgress = updatedUser.progress.filter(progress => progress.id !== updateProgressDto.themeId)
             findProgress.progress = updateProgressDto.progress
 
             await updatedUser.updateOne({
@@ -62,7 +64,7 @@ export class UsersService {
             })
         } else {
             await updatedUser.progress.push({
-                name: updateProgressDto.name,
+                id: updateProgressDto.themeId,
                 progress: updateProgressDto.progress
             })
         }

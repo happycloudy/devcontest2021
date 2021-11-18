@@ -17,7 +17,7 @@ const TasksWindow = ({setPage}) => {
                 {
                     tasks.map(task =>
                         <Grid item key={task._id} xs={6} className='tasks__card-wrap'>
-                            <TaskCard title={task.name}  task={task} setPage={setPage}/>
+                            <TaskCard title={task.name} task={task} setPage={setPage}/>
                         </Grid>
                     )
                 }

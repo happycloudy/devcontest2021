@@ -48,6 +48,14 @@
 
 .task__card-section {
     margin: 5px 5px;
+    cursor: pointer;
+    transition: .5s;
+    /*text-decoration: underline;*/
+}
+
+.task__card-section:hover {
+    transform: translateX(10px);
+    transition: .5s;
 }
 
 .task__card-buttons {
@@ -130,6 +138,8 @@
 .button__next-wrap {
     width: 200px;
     margin-bottom: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .theme_header-text {
@@ -184,6 +194,7 @@
     justify-content: center;
     font-size: 24px;
 }
+
 
 
 /*examples*/
@@ -242,6 +253,7 @@
     min-height: 20vh;
     margin-top: 80px;
     font-size: 24px;
+    min-width: 50%;
 }
 
 .test__result-results {

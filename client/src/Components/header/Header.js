@@ -11,6 +11,7 @@ const Header = ({isBottom}) => {
             {
                 isBottom ?
                     <>
+                        <Line isBottom/>
                         <div className={'header-container bottom-header'}>
                             <header>
                                 <Logo/>
@@ -18,7 +19,7 @@ const Header = ({isBottom}) => {
                                 <LogIn/>
                             </header>
                         </div>
-                        <Line isBottom/>
+
                     </> :
                     <>
                         <div className={'header-container'}>

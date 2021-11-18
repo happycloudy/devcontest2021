@@ -15,9 +15,8 @@
 }
 
 .line-wrap-bottom {
-    margin-top: 200px;
-    position: absolute;
-    bottom: 150px;
+    margin-top: 100px;
+    position: relative;
 }
 
 .line {
@@ -88,6 +87,10 @@
 
 .bg-red {
     background-color: #C0392B;
+}
+
+.bg-gray {
+    background-color: #2C3E50;
 }
 
 a {
@@ -166,6 +169,28 @@ a {
 }
 
 .bottom-header {
-    position: absolute;
+    position: relative;
     bottom: 0;
+}
+
+.formula__heart-wrap {
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formula__heart, .formula__red-heart {
+    height: 25px;
+    transition: 1s;
+    animation: heart-animation 0.5s;
+}
+
+@keyframes heart-animation {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }

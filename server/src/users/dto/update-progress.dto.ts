@@ -4,7 +4,7 @@ export class UpdateProgressDto{
     @ApiProperty()
     readonly id: string
     @ApiProperty()
-    readonly name: string
+    readonly themeId: string
     @ApiProperty()
     readonly progress: number
 }

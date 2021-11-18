@@ -22,7 +22,6 @@
 
 
 .profile__liked {
-    height: 100vh;
 }
 
 .profile__liked-header {
@@ -49,7 +48,7 @@
     box-shadow: 0 4px 4px rgba(41, 128, 185, 0.25);
     border-radius: 10px;
     width: 40%;
-    height: 70%;
+    min-height: 30vh;
     justify-content: center;
     padding-top: 50px;
 }

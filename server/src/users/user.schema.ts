@@ -42,6 +42,6 @@ export class User {
 export const UserSchema = SchemaFactory.createForClass(User)
 
 class Progress {
-    name: string
+    id: string
     progress: number
 }

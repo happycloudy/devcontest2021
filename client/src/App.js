@@ -8,7 +8,6 @@ import axios from "axios";
 import Login from "./components/authorization/Login";
 import Registration from "./components/authorization/Registration";
 import Header from "./components/header/Header";
-import Line from "./components/global/Line";
 import {useDispatch} from "react-redux";
 import {loadUser} from "./loadUser";
 

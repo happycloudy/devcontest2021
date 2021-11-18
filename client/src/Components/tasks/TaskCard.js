@@ -9,6 +9,11 @@ const TaskCard = ({title, task, setPage}) => {
         },500)
     }
 
+    const handleDefinitions = () => setPage({task: task, activePage: 'definitions'})
+    const handleFormulas = () => setPage({task: task, activePage: 'formulas'})
+    const handleExamples = () => setPage({task: task, activePage: 'examples'})
+    const handleTest = () => setPage({task: task, activePage: 'test'})
+
     return (
         <div className='task__card'>
             <div className="task__card-title task__card-element title-text">
@@ -16,16 +21,16 @@ const TaskCard = ({title, task, setPage}) => {
             </div>
 
             <div className="task__card-sections task__card-element">
-                <div className="task__card-section">
+                <div className="task__card-section" onClick={handleDefinitions}>
                     Определения
                 </div>
-                <div className="task__card-section">
+                <div className="task__card-section" onClick={handleFormulas}>
                     Формулы
                 </div>
-                <div className="task__card-section">
+                <div className="task__card-section" onClick={handleExamples}>
                     Примеры решения
                 </div>
-                <div className="task__card-section">
+                <div className="task__card-section" onClick={handleTest}>
                     Тест
                 </div>
             </div>

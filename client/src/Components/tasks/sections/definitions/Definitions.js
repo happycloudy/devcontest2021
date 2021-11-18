@@ -16,6 +16,12 @@ const Definitions = ({task, setPage}) => {
         },500)
     }
 
+    const handlePrevPage = () => {
+        setTimeout(() => {
+            setPage({task: task, activePage: ''})
+        },500)
+    }
+
     return (
         <section className='definitions'>
             <div className="theme_header-wrap">
@@ -61,6 +67,9 @@ const Definitions = ({task, setPage}) => {
                 </div>
 
                 <div className="button__next-section">
+                    <div className="button__next-wrap" onClick={handlePrevPage}>
+                        <CustomOrangeButtonWithText text={'Назад'}/>
+                    </div>
                     <div className="button__next-wrap" onClick={handleNextPage}>
                         <CustomOrangeButtonWithText text={'Далее'}/>
                     </div>

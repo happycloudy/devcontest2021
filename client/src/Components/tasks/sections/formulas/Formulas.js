@@ -12,6 +12,12 @@ const Formulas = ({task, setPage}) => {
         }, 500)
     }
 
+    const handlePrevPage = () => {
+        setTimeout(() => {
+            setPage({task: task, activePage: 'definitions'})
+        },500)
+    }
+
     return (
         <section className='formulas'>
             <div className="theme_header-wrap">
@@ -32,7 +38,7 @@ const Formulas = ({task, setPage}) => {
                             {
                                 formulas.map(formula =>
                                     <Grid item key={formula._id} xs={6} className="formula">
-                                        <Formula formula={formula.formula}/>
+                                        <Formula formula={formula}/>
                                     </Grid>
                                 )
 
@@ -45,6 +51,9 @@ const Formulas = ({task, setPage}) => {
                         </div>
                 }
                 <div className="button__next-section">
+                    <div className="button__next-wrap" onClick={handlePrevPage}>
+                        <CustomOrangeButtonWithText text={'Назад'}/>
+                    </div>
                     <div className="button__next-wrap" onClick={handleNextPage}>
                         <CustomOrangeButtonWithText text={'Далее'}/>
                     </div>

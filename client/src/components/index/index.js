@@ -5,17 +5,26 @@ import IndexBlock2 from "./IndexBlock2";
 import IndexBlock3 from "./IndexBlock3";
 import IndexBlock4 from "./IndexBlock4";
 import  '../../styles/index.css'
+import {Fade} from "react-awesome-reveal";
 
 const Index = () => {
     return (
         <div>
-            <IndexBlock1/>
+            <Fade>
+                <IndexBlock1/>
+            </Fade>
             <Line/>
-            <IndexBlock2/>
+            <Fade>
+                <IndexBlock2/>
+            </Fade>
             <Line/>
-            <IndexBlock3/>
+            <Fade>
+                <IndexBlock3/>
+            </Fade>
             <Line/>
-            <IndexBlock4/>
+            <Fade>
+                <IndexBlock4/>
+            </Fade>
         </div>
     );
 };

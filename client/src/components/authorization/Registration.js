@@ -59,31 +59,31 @@ const inputProps = {
 
 const Registration = () => {
 
-    const [Name1, setName1] = useState('');
+    const [name1, setName1] = useState('');
     const handleChangeName1 = (e) => {
         setName1(e.target.value);
     }
 
-    const [Name2, setName2] = useState('');
+    const [name2, setName2] = useState('');
     const handleChangeName2 = (e) => {
         setName2(e.target.value);
     }
 
-    const [Name3, setName3] = useState('');
+    const [name3, setName3] = useState('');
     const handleChangeName3 = (e) => {
         setName3(e.target.value);
     }
 
-    const [Username, setUsername] = useState('');
+    const [username, setUsername] = useState('');
     const handleChangeUsername = (e) => {
         setUsername(e.target.value);
     }
 
-    const [Password, setPassword] = useState('');
+    const [password, setPassword] = useState('');
     const handleChangePassword = (e) => {
         setPassword(e.target.value);
     }
-    const [PasswordRepeat, setPasswordRepeat] = useState('');
+    const [passwordRepeat, setPasswordRepeat] = useState('');
     const handleChangePasswordRepeat = (e) => {
         setPassword(e.target.value);
     }
@@ -91,16 +91,16 @@ const Registration = () => {
     const handleSubmit = async () => {
         // TODO: ошибка при несовпадении password и passwordrepeat
         const res = await axios.post('http://localhost:3001/users', {
-            name1: this.state.value(Name1),
-            name2: this.state.value(Name2),
-            name3: this.state.value(Name3),
-            username: this.state.value(Username),
-            password: this.state.value(Password)
+            name1: name1,
+            name2: name2,
+            name3: name3,
+            username: username,
+            password: password
         }).catch(() => {})
 
         const loginRes = await axios.post('http://localhost:3001/auth/login', {
-            username: this.state.value(Username),
-            password: this.state.value(Password)
+            username: username,
+            password: password
         }).catch(() => {})
 
 

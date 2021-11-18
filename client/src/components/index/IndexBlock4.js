@@ -1,7 +1,8 @@
 import React from 'react';
-import Choose from "./IndexBlock4/Choose";
 import Disciplines from "./IndexBlock4/Disciplines";
 import Line from "./IndexBlock4/Line";
+import CustomOrangeButtonWithText from "../global/CustomOrangeButtonWithText";
+import {Link} from "react-router-dom";
 
 const IndexBlock4 = () => {
     return (
@@ -18,7 +19,11 @@ const IndexBlock4 = () => {
                 <Line/>
             </div>
             <Disciplines/>
-            <Choose/>
+            <div className='IndexBlock4-button'>
+                <Link to={'/login'}>
+                    <CustomOrangeButtonWithText text='Выбрать'/>
+                </Link>
+            </div>
         </div>
     );
 };

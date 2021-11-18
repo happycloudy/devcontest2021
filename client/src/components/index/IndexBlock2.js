@@ -19,11 +19,20 @@ const IndexBlock2 = () => {
                 <div className='IndexBlock2-algorithm1'>
                     Выбираете курс
                 </div>
+                <div className='IndexBlock2-algorithm-image'>
+                    <img src='images/arrow.png'/>
+                </div>
                 <div className='IndexBlock2-algorithm2'>
                     Выбираете задания,<br/>используя самое нужное
                 </div>
+                <div className='IndexBlock2-algorithm-image'>
+                    <img src='images/arrow.png'/>
+                </div>
                 <div className='IndexBlock2-algorithm3'>
                     Получаете быстрый результат
+                </div>
+                <div className='IndexBlock2-algorithm-image-margin'>
+                    <img src='images/check.png'/>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ import {Fade} from "react-awesome-reveal";
 
 const Index = () => {
     return (
-        <>
+        <div>
             <Fade>
                 <IndexBlock1/>
             </Fade>
@@ -25,7 +25,7 @@ const Index = () => {
             <Fade>
                 <IndexBlock4/>
             </Fade>
-        </>
+        </div>
     );
 };
 

@@ -5,6 +5,7 @@
     font-weight: normal;
     min-height: 100vh;
     overflow-x: hidden;
+    position: relative;
 }
 
 .line-wrap {
@@ -15,6 +16,8 @@
 
 .line-wrap-bottom {
     margin-top: 200px;
+    position: absolute;
+    bottom: 150px;
 }
 
 .line {
@@ -38,6 +41,7 @@
     width: 100%;
     cursor: pointer;
     user-select: none;
+    color: white;
 }
 
 .custom__button-orange-border {
@@ -86,6 +90,82 @@
     background-color: #C0392B;
 }
 
-a{
+a {
     text-decoration: none;
+}
+
+.custom__button_login-orange-border {
+    outline: 1px solid #D35400;
+    box-sizing: border-box;
+    border-radius: 100px;
+    transition: 0.1s;
+    background-size: 0 100%;
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(#D35400, #D35400);
+    display: flex;
+    justify-content: center;
+    height: 75px;
+}
+
+.custom__button_login-orange-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    min-width: 100px;
+}
+
+.vertical-line {
+    height: 100%;
+    width: 2px;
+    background: #D35400;
+    z-index: 100;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog-window__wrap {
+    z-index: 100000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    background: rgba(44, 62, 80, 0.8);
+    transition: .3s;
+    animation: dial-show .3s;
+}
+
+.dialog-window__text {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: white;
+    top: 50%;
+    left: 50%;
+    font-size: 64px;
+}
+
+@keyframes dial-show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.bottom-header {
+    position: absolute;
+    bottom: 0;
 }

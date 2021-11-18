@@ -4,15 +4,22 @@ import ProfileMain from "./ProfileMain";
 import '../../styles/profile.css'
 import Themes from "./Themes";
 import Liked from "./Liked";
+import {Fade} from "react-awesome-reveal";
 
 const Profile = () => {
     return (
         <>
-            <ProfileMain/>
+            <Fade>
+                <ProfileMain/>
+            </Fade>
             <Line/>
-            <Themes/>
+            <Fade>
+                <Themes/>
+            </Fade>
             <Line/>
-            <Liked/>
+            <Fade>
+                <Liked/>
+            </Fade>
         </>
     );
 };

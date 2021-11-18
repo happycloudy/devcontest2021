@@ -31,13 +31,9 @@ const Tasks = () => {
     const switchPage = () => {
         switch (page.activePage) {
             case 'definitions':
-                return <Slide direction={'right'} >
-                    <Definitions setPage={setPage} task={page.task}/>
-                </Slide>
+                return <Definitions setPage={setPage} task={page.task}/>
             case 'formulas':
-                return <Fade>
-                    <Formulas setPage={setPage} task={page.task}/>
-                </Fade>
+                return<Formulas setPage={setPage} task={page.task}/>
             case 'examples':
                 return <Examples setPage={setPage} task={page.task}/>
             case 'test':
@@ -52,11 +48,11 @@ const Tasks = () => {
     }
 
     return (
-        <>
+        <Fade>
             {
                 switchPage()
             }
-        </>
+        </Fade>
     );
 };
 

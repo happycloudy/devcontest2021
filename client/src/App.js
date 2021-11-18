@@ -12,6 +12,7 @@ import Line from "./components/global/Line";
 import {useDispatch} from "react-redux";
 import {loadUser} from "./loadUser";
 
+
 function App() {
     axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`
     const dispatch = useDispatch()
@@ -25,7 +26,6 @@ function App() {
     return (
         <div className="App">
             <Header/>
-            <Line/>
 
             <Routes>
                 <Route path={'/'} element={<Index/>}/>
@@ -35,8 +35,7 @@ function App() {
                 <Route path={'/registration'} element={<Registration/>}/>
             </Routes>
 
-            <Line isBottom/>
-            <Header/>
+            <Header isBottom/>
         </div>
     );
 }

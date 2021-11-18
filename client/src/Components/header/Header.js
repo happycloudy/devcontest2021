@@ -3,16 +3,36 @@ import Logo from "./Logo";
 import InfoAndTasks from "./InfoAndTasks";
 import LogIn from "./LogIn";
 import '../../styles/header.css'
+import Line from "../global/Line";
 
-const Header = () => {
+const Header = ({isBottom}) => {
     return (
-        <div className='header-container'>
-            <header>
-                <Logo/>
-                <InfoAndTasks/>
-                <LogIn/>
-            </header>
-        </div>
+        <>
+            {
+                isBottom ?
+                    <>
+                        <div className={'header-container bottom-header'}>
+                            <header>
+                                <Logo/>
+                                <InfoAndTasks/>
+                                <LogIn/>
+                            </header>
+                        </div>
+                        <Line isBottom/>
+                    </> :
+                    <>
+                        <div className={'header-container'}>
+                            <header>
+                                <Logo/>
+                                <InfoAndTasks/>
+                                <LogIn/>
+                            </header>
+                        </div>
+                        <Line/>
+                    </>
+
+            }
+        </>
     );
 };
 

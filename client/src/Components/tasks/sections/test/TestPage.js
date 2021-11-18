@@ -47,7 +47,7 @@ const TestPage = ({task, setPage}) => {
 
     useEffect(()=>{
         dispatch(addResultsAction(boolAnswers))
-    }, [boolAnswers])
+    }, [boolAnswers,dispatch])
 
     return (
         <section className="test">

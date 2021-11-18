@@ -5,10 +5,11 @@ import axios from 'axios'
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import createTheme from "@mui/material/styles/createTheme";
 import '../../styles/auth.css'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {logInAction} from "./reducers/authReducer";
 import {Fade} from "react-awesome-reveal";
+import DialogWindow from "../global/DialogWindow";
 
 
 const theme = createTheme({
@@ -28,7 +29,7 @@ const theme = createTheme({
                     }
 
                 },
-                colorSecondary:"#808080",
+                colorSecondary: "#808080",
                 underline: {
                     borderBottomColor: "#808080",
                     "&:before": {
@@ -43,7 +44,7 @@ const theme = createTheme({
                 }
             }
         },
-        MuiInputLabel:{
+        MuiInputLabel: {
             styleOverrides: {
                 root: {
                     color: 'white'
@@ -62,7 +63,9 @@ const inputProps = {
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(false)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleChangeUsername = (e) => {
         setUsername(e.target.value);
@@ -78,40 +81,50 @@ const Login = () => {
             username: username,
             password: password
         }).catch(() => {
-            console.log('Ошибка авторизации')
+            setError(true)
+            setTimeout(() => {
+                setError(false)
+            }, 1000)
         })
         if (res === undefined) return
-        dispatch(logInAction({token: res.data.access_token , user: res.data.user}))
+        dispatch(logInAction({token: res.data.access_token, user: res.data.user}))
+        navigate('/')
     }
 
+    const handleClose = () => setError(false)
+
     return (
-        <Fade>
-            <form className='Login'>
-                <div className='Login-p'>
-                    Вход
-                </div>
-                <div className='Login-form'>
-                    <div className='Login-form-input'>
-                        <ThemeProvider theme={theme}>
-                            <div className='Login-form-input-only'>
-                                <TextField fullWidth id="login" label="Никнейм" variant="filled" onChange={handleChangeUsername} inputProps={inputProps}/>
-                            </div>
-                            <div className='Login-form-input-only'>
-                                <TextField fullWidth id="password" label="Пароль" variant="filled" type="password" onChange={handleChangePassword} inputProps={inputProps}/>
-                            </div>
-                        </ThemeProvider>
+        <>
+            <DialogWindow text={'Неверный ввод'} status={error} handleClose={handleClose}/>
+            <Fade cascade>
+                <form className='Login'>
+
+                    <div className='Login-p'>
+                        Вход
                     </div>
-                    <div className='Login-form-submit' >
-                       <Link to={'/'} style={{width: '100%', textDecoration: 'none', color: 'white'}}>
-                           <CustomOrangeButtonWithText text='Войти' onClick={handleSubmit}/>
-                       </Link>
+                    <div className='Login-form'>
+                        <div className='Login-form-input'>
+                            <ThemeProvider theme={theme}>
+                                <div className='Login-form-input-only'>
+                                    <TextField fullWidth id="login" label="Никнейм" variant="filled"
+                                               onChange={handleChangeUsername} inputProps={inputProps} required/>
+                                </div>
+                                <div className='Login-form-input-only'>
+                                    <TextField fullWidth id="password" label="Пароль" variant="filled" type="password"
+                                               onChange={handleChangePassword} inputProps={inputProps} required/>
+                                </div>
+                            </ThemeProvider>
+                        </div>
+                        <div className='Login-form-submit'>
+                            <CustomOrangeButtonWithText text='Войти' onClick={handleSubmit}/>
+                        </div>
+                        <Link to={'/registration'} className='Login-form-reg'>
+                            <CustomOrangeButtonWithText text='Регистрация'/>
+                        </Link>
                     </div>
-                    <Link to={'/registration'} className='Login-form-reg' >
-                        <CustomOrangeButtonWithText text='Регистрация' />
-                    </Link>
-                </div>
-            </form>
-        </Fade>
+                </form>
+            </Fade>
+        </>
     );
 };
 

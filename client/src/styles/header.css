@@ -6,7 +6,7 @@
     text-align: center;
     justify-content: center;
     font-size: 36px;
-    margin-top: 25px;
+    margin: 25px 0 25px 0;
 }
 
 header {
@@ -32,6 +32,10 @@ header {
     font-size: 24px;
 }
 
+.InfoAndTasks-auth {
+    margin-left: 150px;
+}
+
 .IAT1, .IAT2 {
     text-decoration: none;
     color: #FFFFFF;
@@ -41,6 +45,7 @@ header {
     align-items: center;
     justify-content: center;
 }
+
 
 .LogIn {
     width: 300px;
@@ -53,4 +58,8 @@ header {
 
 .with-exit {
     width: 500px;
+}
+
+.custom__login-button_wrap {
+    width: 450px;
 }

@@ -35,7 +35,7 @@ const Formula = ({formula}) => {
     return (
         <>
             <MathJaxContext>
-                <MathJax inline>
+                <MathJax className={'formula__formula'}>
                     {formula.formula}
                 </MathJax>
             </MathJaxContext>

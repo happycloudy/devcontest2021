@@ -52,7 +52,6 @@ export class UsersService {
     async updateProgress(updateProgressDto: UpdateProgressDto): Promise<User> {
         const updatedUser = await this.userModel.findById(updateProgressDto.id)
         let findProgress = await updatedUser.progress.find(progress => {
-            console.log(progress.id, updateProgressDto.themeId)
             return progress.id === updateProgressDto.themeId
         })
         if (findProgress) {

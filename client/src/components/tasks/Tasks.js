@@ -18,16 +18,6 @@ const Tasks = () => {
         task: {}
     })
 
-    //redux logic here / all requests
-    const dispatch = useDispatch()
-
-    const fetchTasks = () => {
-        axios.get('http://localhost:3001/themes').then(res => {
-            dispatch(loadTasksAction(res.data))
-        })
-    }
-    fetchTasks()
-
     const switchPage = () => {
         switch (page.activePage) {
             case 'definitions':

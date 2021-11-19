@@ -60,7 +60,7 @@ const Examples = ({task, setPage}) => {
                                     <AccordionDetails className="definitions__accordion-details">
                                         <Typography className="definitions__accordion-details_text">
                                             <MathJaxContext>
-                                                <MathJax>
+                                                <MathJax inline dynamic>
                                                     {example.example}
                                                 </MathJax>
                                             </MathJaxContext>

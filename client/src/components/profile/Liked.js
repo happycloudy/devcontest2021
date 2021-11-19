@@ -10,10 +10,8 @@ const Liked = () => {
 
     const fetchFormulas = async () => {
         if (user.hasOwnProperty('likedFormulasId')) {
-            for (const formula of user.likedFormulasId) {
-                const res = await axios.get('http://localhost:3001/formulas/')
-                handleAddFormulaWithFilter(res.data[0])
-            }
+            const res = await axios.get('http://localhost:3001/formulas/')
+            handleAddFormulaWithFilter(res.data[0])
         }
     }
 

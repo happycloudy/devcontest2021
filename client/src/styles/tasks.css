@@ -50,12 +50,19 @@
     margin: 5px 5px;
     cursor: pointer;
     transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /*text-decoration: underline;*/
 }
 
 .task__card-section:hover {
     transform: translateX(10px);
     transition: .5s;
+}
+
+.task__card-section_arrow {
+    height: 24px;
 }
 
 .task__card-buttons {
@@ -74,7 +81,7 @@
 .definitions {
     width: 100%;
     /*TODO: убрать*/
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;

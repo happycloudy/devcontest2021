@@ -2,7 +2,7 @@ import React from 'react';
 import CustomOrangeButtonWithText from "../global/CustomOrangeButtonWithText";
 import {Grid} from "@mui/material";
 
-const TaskCard = ({title, task, setPage}) => {
+const TaskCard = ({title, task, setPage, progress = 0}) => {
     const handleStart = () => {
         setTimeout(() => {
             setPage({task: task, activePage: 'definitions'})
@@ -23,15 +23,35 @@ const TaskCard = ({title, task, setPage}) => {
             <div className="task__card-sections task__card-element">
                 <div className="task__card-section" onClick={handleDefinitions}>
                     Определения
+                    <img
+                        src={'next.png'}
+                        alt={'next'}
+                        className={'task__card-section_arrow'}
+                    />
                 </div>
                 <div className="task__card-section" onClick={handleFormulas}>
                     Формулы
+                    <img
+                        src={'next.png'}
+                        alt={'next'}
+                        className={'task__card-section_arrow'}
+                    />
                 </div>
                 <div className="task__card-section" onClick={handleExamples}>
                     Примеры решения
+                    <img
+                        src={'next.png'}
+                        alt={'next'}
+                        className={'task__card-section_arrow'}
+                    />
                 </div>
                 <div className="task__card-section" onClick={handleTest}>
                     Тест
+                    <img
+                        src={'next.png'}
+                        alt={'next'}
+                        className={'task__card-section_arrow'}
+                    />
                 </div>
             </div>
 
@@ -50,7 +70,7 @@ const TaskCard = ({title, task, setPage}) => {
 
             <div className="task__card-progress_wrap task__card-element">
                 <div className="task__card-progress">
-                    Прогресс <span className='text-orange'>{25}</span>%
+                    Прогресс <span className='text-orange'>{progress}</span>%
                 </div>
             </div>
         </div>

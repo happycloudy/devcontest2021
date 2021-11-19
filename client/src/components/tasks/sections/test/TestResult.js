@@ -37,7 +37,7 @@ const TestResult = ({task, setPage}) => {
         await axios.patch('http://localhost:3001/users/updateProgress',{
             id: user._id,
             themeId: task._id,
-            progress: percentage
+            progress: percentage*100
         })
 
         dispatch(loadUser())

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Accordion, AccordionDetails, AccordionSummary, Typography} from "@mui/material";
 import CustomOrangeButtonWithText from "../../../global/CustomOrangeButtonWithText";
+import {MathJax, MathJaxContext} from "better-react-mathjax";
 
 const Definitions = ({task, setPage}) => {
     const [definitions] = useState(() => task.definitions)
@@ -55,7 +56,11 @@ const Definitions = ({task, setPage}) => {
                                     </AccordionSummary>
                                     <AccordionDetails className="definitions__accordion-details">
                                         <Typography className="definitions__accordion-details_text">
-                                            {definition.description}
+                                           <MathJaxContext>
+                                               <MathJax>
+                                                   {definition.description}
+                                               </MathJax>
+                                           </MathJaxContext>
                                         </Typography>
                                     </AccordionDetails>
                                 </Accordion>

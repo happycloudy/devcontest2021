@@ -15,7 +15,7 @@ const CustomLoginButton = ({user, text2, onClick, handleLogOut}) => {
                     <div>
                         Общий прогресс:
                     </div>
-                    <div>
+                    <div className='progress-number'>
                         <span className={'text-orange'}>{text2.toFixed(2)}</span>%
                     </div>
                 </div>

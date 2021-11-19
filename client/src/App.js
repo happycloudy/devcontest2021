@@ -10,11 +10,19 @@ import Registration from "./components/authorization/Registration";
 import Header from "./components/header/Header";
 import {useDispatch} from "react-redux";
 import {loadUser} from "./loadUser";
+import {loadTasksAction} from "./components/tasks/reducers/tasksReducer";
 
 
 function App() {
     axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`
     const dispatch = useDispatch()
+
+    const fetchTasks = () => {
+        axios.get('http://localhost:3001/themes').then(res => {
+            dispatch(loadTasksAction(res.data))
+        })
+    }
+    fetchTasks()
 
     useEffect(()=>{
         if(localStorage.getItem('access_token') !== null){

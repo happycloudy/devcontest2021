@@ -1,5 +1,5 @@
 import {Module} from '@nestjs/common';
-import {MongooseModule} from "@nestjs/mongoose";
+import {getModelToken, MongooseModule} from "@nestjs/mongoose";
 import {UsersModule} from './users/users.module';
 import {ThemesModule} from './themes/themes.module';
 import {DefinitionsModule} from './definitions/definitions.module';
@@ -21,7 +21,7 @@ import {JwtAuthGuard} from "./auth/jwt-auth.guard";
         FormulasModule,
         ExamplesModule,
         TestsModule,
-        AuthModule
+        AuthModule,
     ],
     controllers: [AppController],
     providers: [

@@ -13,12 +13,30 @@
     color: white;
 }
 
+.profile__main-wrap_item-img {
+    width: 500px;
+    height: 500px;
+    border-radius: 1000px;
+    object-fit: cover;
+}
+
+.profile_themes-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .profile_themes-header {
     display: flex;
     justify-content: center;
     margin-top: 100px;
 }
 
+.profile_themes {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
 
 
 .profile__liked {
@@ -30,7 +48,7 @@
     margin-top: 100px;
 }
 
-.profile__liked_formulas-wrap{
+.profile__liked_formulas-wrap {
     display: flex;
     justify-content: center;
     align-items: center;

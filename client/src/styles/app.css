@@ -1,5 +1,5 @@
 .App {
-    background: #2C3E50;
+    background: linear-gradient(77deg, rgba(44,62,80,1) 0%, rgba(52,73,94,1) 100%);
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -132,8 +132,13 @@ a {
 
 .progress-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    font-size: 18px;
+}
+
+.progress-number {
+    margin-left: 10px;
 }
 
 .dialog-window__wrap {
@@ -173,6 +178,12 @@ a {
     bottom: 0;
 }
 
+.formula__formula {
+    display: flex!important;
+    justify-content: center;
+    align-items: center;
+}
+
 .formula__heart-wrap {
     margin-left: 15px;
     display: flex;
@@ -187,10 +198,10 @@ a {
 }
 
 @keyframes heart-animation {
-    from{
+    from {
         opacity: 0;
     }
-    to{
+    to {
         opacity: 1;
     }
 }

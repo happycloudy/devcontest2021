@@ -10,6 +10,7 @@ import Registration from "./components/authorization/Registration";
 import Header from "./components/header/Header";
 import {useDispatch} from "react-redux";
 import {loadUser} from "./loadUser";
+import Information from "./components/ihformation/Information";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
                 <Route path={'/tasks'} element={<Tasks/>}/>
                 <Route path={'/login'} element={<Login/>}/>
                 <Route path={'/registration'} element={<Registration/>}/>
+                <Route path={'/info'} element={<Information/>}/>
             </Routes>
 
             <Header isBottom/>

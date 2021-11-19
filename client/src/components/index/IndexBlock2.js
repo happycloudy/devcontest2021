@@ -1,19 +1,40 @@
 import React from 'react';
+import {Slide} from "react-awesome-reveal";
+import {keyframes} from "@emotion/react";
+
+const customAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translate(-400px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+`;
+
 
 const IndexBlock2 = () => {
     return (
         <div className='IndexBlock2'>
             <div className='IndexBlock2-p'>
-                <div className='IndexBlock2-p1'>
-                    Почему  именно  мы?
-                </div>
+                <Slide keyframes={customAnimation}>
+                    <div className='IndexBlock2-p1'>
+                        Почему  именно  мы?
+                    </div>
+                </Slide>
                 <br/>
+                <Slide keyframes={customAnimation} delay={300}>
                 <div className='IndexBlock2-p2'>
                     Мы можем помочь тебе быстро освоить нужную<br/>область математики, не смотря на её сложность.
                 </div>
+                </Slide>
+                <Slide keyframes={customAnimation} delay={600}>
                 <div className='IndexBlock2-p3'>
                     За счёт продуманного интерфейса и типа задач ты<br/>самостоятельно можешь изучить или повторить<br/>нужные темы в кратчайшие сроки.
                 </div>
+                </Slide>
             </div>
             <div className='IndexBlock2-algorithm'>
                 <div className='IndexBlock2-algorithm1'>

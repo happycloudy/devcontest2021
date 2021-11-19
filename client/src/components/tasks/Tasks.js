@@ -1,9 +1,6 @@
 import React, {useState} from 'react';
 import TasksWindow from "./TasksWindow";
 import '../../styles/tasks.css'
-import axios from "axios";
-import {useDispatch} from "react-redux";
-import {loadTasksAction} from "./reducers/tasksReducer";
 import Definitions from "./sections/definitions/Definitions";
 import Formulas from "./sections/formulas/Formulas";
 import Examples from "./sections/examples/Examples";
@@ -12,7 +9,6 @@ import TestResult from "./sections/test/TestResult";
 import {Fade} from "react-awesome-reveal";
 
 const Tasks = () => {
-    //state
     const [page, setPage] = useState({
         activePage: '', //definitions, formulas, examples, tests    default: ''
         task: {}

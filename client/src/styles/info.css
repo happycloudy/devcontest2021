@@ -1,0 +1,28 @@
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-wrap {
+    width: 75%;
+}
+
+.info__header-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    width: 100%;
+}
+
+.info__cards {
+    margin-top: 0 !important;
+    width: 100% !important;
+}
+
+.info__cards-item {
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+}

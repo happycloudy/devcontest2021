@@ -44,7 +44,49 @@ header {
     text-align: center;
     align-items: center;
     justify-content: center;
+    transition: .5s;
+    border-top: 2px solid #D35400;
+    border-bottom: 2px solid #D35400;
+    height: 70px;
 }
+
+.IAT1:hover, .IAT2:hover{
+    transition: .5s;
+    border-radius: 30px;
+    animation: header-button-animation 0.5s ease-in-out;
+    border-left: 2px solid #D35400;
+    border-right: 2px solid #D35400;
+}
+
+.jump{
+    transition: 0.5s;
+    /*border-radius: 30px;*/
+    animation: jump-animation 0.5s ease-in-out;
+}
+
+@keyframes jump-animation {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes header-button-animation {
+    0%{
+        border-left: 0 solid #D35400;
+        border-right: 0 solid #D35400;
+    }
+    100%{
+        border-left: 2px solid #D35400;
+        border-right: 2px solid #D35400;
+    }
+}
+
 
 
 .LogIn {

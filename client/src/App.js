@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import Index from "./components/index";
 import {Routes, Route} from "../node_modules/react-router-dom/index";
 import Profile from "./components/profile/Profile";
@@ -11,6 +11,8 @@ import Header from "./components/header/Header";
 import {useDispatch} from "react-redux";
 import {loadUser} from "./loadUser";
 import {loadTasksAction} from "./components/tasks/reducers/tasksReducer";
+import Information from "./components/info/Information";
+import DialogWindow from "./components/global/DialogWindow";
 
 
 function App() {
@@ -30,16 +32,17 @@ function App() {
         }
     },[dispatch])
 
+
     return (
         <div className="App">
             <Header/>
-
             <Routes>
                 <Route path={'/'} element={<Index/>}/>
                 <Route path={'/profile'} element={<Profile/>}/>
                 <Route path={'/tasks'} element={<Tasks/>}/>
                 <Route path={'/login'} element={<Login/>}/>
                 <Route path={'/registration'} element={<Registration/>}/>
+                <Route path={'/info'} element={<Information/>}/>
             </Routes>
 
             <Header isBottom/>

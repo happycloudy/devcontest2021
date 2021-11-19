@@ -1,5 +1,11 @@
 .tasks-section {
-    min-height: 100vh;
+    /*min-height: 100vh;*/
+    display: flex;
+    justify-content: center;
+}
+
+.tasks-section_wrap {
+    width: 75%;
 }
 
 .tasks__title {
@@ -10,7 +16,7 @@
 
 
 .tasks__cards-container {
-    margin-top: 96px !important;
+    margin-top: 0 !important;
 }
 
 
@@ -30,6 +36,18 @@
     flex-direction: column;
     box-shadow: 0 4px 4px rgba(41, 128, 185, 0.25);
     border-radius: 10px;
+    position: relative;
+}
+
+.success_window {
+    position: absolute;
+    background: rgba(52, 73, 94, 0.75);
+    height: 100%;
+    width: 100%;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .task__card-element {
@@ -37,6 +55,10 @@
     display: flex;
     justify-content: center;
     font-size: 24px;
+}
+
+.progress-colored {
+    color: #27AE60;
 }
 
 .task__card-sections {
@@ -201,7 +223,6 @@
     justify-content: center;
     font-size: 24px;
 }
-
 
 
 /*examples*/

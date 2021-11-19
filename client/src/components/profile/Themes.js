@@ -11,7 +11,7 @@ const Themes = ({setPage}) => {
     const handleUserTasks = () => {
         setUserTasks(() => tasks.filter(task => {
                 let findTask = user.progress.find(taskInUser => taskInUser.id === task._id)
-                if (findTask) {
+                if (findTask && findTask.progress === 100) {
                     return findTask.id === task._id
                 }
             })
@@ -32,7 +32,7 @@ const Themes = ({setPage}) => {
             </div>
 
             <div className="profile_themes-wrap">
-                <Grid container className="profile_themes">
+                <Grid container rowSpacing={12} className="profile_themes">
                     {
                         userTasks.map(task => {
                             let userTask = user.progress.find(userTask => userTask.id === task._id)

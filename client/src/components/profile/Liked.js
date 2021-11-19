@@ -11,12 +11,18 @@ const Liked = () => {
     const fetchFormulas = async () => {
         if (user.hasOwnProperty('likedFormulasId')) {
             const res = await axios.get('http://localhost:3001/formulas/')
-            handleAddFormulaWithFilter(res.data[0])
+            for (let formula of res.data) {
+                handleAddFormulaWithFilter(formula)
+            }
+
         }
     }
 
     const handleAddFormulaWithFilter = (formula) => {
-        if (!formulas.find(formulaElement => formulaElement.formula === formula.formula))
+        if (
+            !formulas.find(formulaElement => formulaElement.formula === formula.formula) &&
+            user.likedFormulasId.find(userFormulaId => userFormulaId === formula._id)
+        )
             setFormulas(prevState => {
                 let newState = [...prevState]
                 newState.push(formula)

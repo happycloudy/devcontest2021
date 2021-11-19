@@ -233,7 +233,7 @@
 }
 
 .Discipline-1, .Discipline-2 {
-    z-index: 2;
+    /*z-index: 2;*/
 }
 
 .Discipline-2-back, .Discipline-1-back {
